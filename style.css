@@ -190,6 +190,27 @@ body {
   color: rgba(255, 255, 255, 0.55);
 }
 
+/* Кнопка входа справа от счётчика TG */
+.authbtn {
+  flex-shrink: 0;
+  padding: 10px 18px;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.authbtn .menu__label {
+  font-size: 14px;
+}
+
+.authbtn:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
 /* ===== Основной контент ===== */
 .page {
   position: relative;
@@ -289,6 +310,14 @@ body {
 
   .subs__count {
     font-size: 14px;
+  }
+
+  .authbtn {
+    padding: 8px 12px;
+  }
+
+  .authbtn .menu__label {
+    font-size: 12px;
   }
 
   .page {
