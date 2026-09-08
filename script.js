@@ -27,13 +27,13 @@ function animate() {
 }
 animate();
 
-// Живой счётчик подписчиков TG: число берём из subs.json,
-// который обновляет GitHub Actions. Токена на сайте НЕТ.
+// Живой счётчик подписчиков TG: число отдаёт наша серверная функция /api/subs.
+// Токена на сайте НЕТ — он лежит в Environment Variables на Vercel.
 const subsEl = document.getElementById('subsCount');
 
 async function updateSubs() {
   try {
-    const res = await fetch('subs.json?t=' + Date.now());
+    const res = await fetch('/api/subs');
     if (!res.ok) return;
     const data = await res.json();
     if (data.count > 0 && subsEl) {
