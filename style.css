@@ -482,6 +482,10 @@ body {
   gap: 3px;
 }
 
+.card__vulns {
+  color: #ff8080;
+}
+
 @media (max-width: 480px) {
   .search {
     flex-direction: column;
