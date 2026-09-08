@@ -17,7 +17,7 @@ jobs:
             echo "::error::Secret TELEGRAM_TOKEN не задан. Repo → Settings → Secrets and variables → Actions → New repository secret."
             exit 1
           fi
-          RESP=$(curl -s "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/getChatMembersCount?chat_id=-1002679769175")
+          RESP=$(curl -s "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/getChatMembersCount?chat_id=--1002828764783")
           echo "$RESP"
           COUNT=$(echo "$RESP" | grep -o '"result":[0-9]*' | grep -o '[0-9]*' || true)
           if [ -z "$COUNT" ]; then
