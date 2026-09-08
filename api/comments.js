@@ -21,6 +21,15 @@ export default async function handler(req, res) {
       const pid = Number(postId);
       const t = String(text || '').trim().slice(0, 500);
       if (!pid || !t) return json(res, 400, { error: 'Пустой комментарий' });
+
+      // Лимит: 1 комментарий в 5 минут
+      const last = await sql`
+        SELECT created_at FROM comments WHERE author_id = ${me.id}
+        ORDER BY id DESC LIMIT 1`;
+      if (last.rows.length && Date.now() - new Date(last.rows[0].created_at).getTime() < 5 * 60 * 1000) {
+        return json(res, 429, { error: 'Комментировать можно раз в 5 минут' });
+      }
+
       const { rows } = await sql`
         INSERT INTO comments (post_id, author_id, text)
         VALUES (${pid}, ${me.id}, ${t})
