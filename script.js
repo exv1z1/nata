@@ -45,3 +45,20 @@ async function updateSubs() {
 }
 updateSubs();
 setInterval(updateSubs, 60000);
+
+// Подпись пункта меню под залогиненного (ник вместо «Войти»)
+(async () => {
+  const link = document.getElementById('menuAuth');
+  if (!link) return;
+  try {
+    const res = await fetch('/api/auth/me');
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data.user) {
+      link.querySelector('.menu__label').textContent = data.user.nick;
+      link.href = data.user.role === 'admin' ? 'admin.html' : 'board.html?board=shitpost';
+    }
+  } catch (e) {
+    // Не залогинен — оставляем «Войти»
+  }
+})();
