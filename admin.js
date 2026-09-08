@@ -95,8 +95,8 @@ async function loadUsers() {
     return;
   }
   usersList.innerHTML = (data.users || []).map((u) =>
-    '<div class="card"><div class="card__ip">' + esc(u.nick) + '</div>' +
-    '<div class="card__meta">@' + esc(u.login) + ' · ' + esc(u.role) + '</div>' +
+    '<div class="card"><div class="card__ip">' + esc(u.login) + '</div>' +
+    '<div class="card__meta">' + esc(u.role) + '</div>' +
     (data.owner && u.role !== 'admin'
       ? '<button class="btn btn--small" data-make="' + esc(u.login) + '">Сделать админом</button>' : '') +
     (data.owner && u.role === 'admin'

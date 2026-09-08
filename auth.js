@@ -49,7 +49,6 @@ regForm.addEventListener('submit', async (e) => {
   msg.textContent = '';
   try {
     await post('/api/auth/register', {
-      nick: document.getElementById('regNick').value.trim(),
       login: document.getElementById('regLogin').value.trim(),
       password: document.getElementById('regPass').value,
       invite: document.getElementById('regInvite').value.trim(),
