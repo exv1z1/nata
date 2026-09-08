@@ -149,9 +149,49 @@ body {
   color: #fff;
 }
 
-/* Правый блок как на фото (аватар + имя) */
-.user {
+/* Счётчик подписчиков TG справа в меню */
+.subs {
   display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 10px 16px;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.1);
+}
+
+.subs__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #34e16d;
+  box-shadow: 0 0 10px rgba(52, 225, 109, 0.9);
+  animation: subs-pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes subs-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.8); }
+}
+
+.subs__count {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.subs__label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Правый блок как на фото (аватар + имя) */
+.user {  display: flex;
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
@@ -263,6 +303,18 @@ body {
 
   .user__name {
     display: none;
+  }
+
+  .subs {
+    padding: 8px 12px;
+  }
+
+  .subs__label {
+    display: none;
+  }
+
+  .subs__count {
+    font-size: 14px;
   }
 
   .page {

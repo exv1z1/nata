@@ -26,3 +26,22 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+
+// Живой счётчик подписчиков TG: число берём из subs.json,
+// который обновляет GitHub Actions. Токена на сайте НЕТ.
+const subsEl = document.getElementById('subsCount');
+
+async function updateSubs() {
+  try {
+    const res = await fetch('subs.json?t=' + Date.now());
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data.count > 0 && subsEl) {
+      subsEl.textContent = Number(data.count).toLocaleString('ru-RU');
+    }
+  } catch (e) {
+    // Нет сети — оставляем число-заглушку
+  }
+}
+updateSubs();
+setInterval(updateSubs, 60000);
