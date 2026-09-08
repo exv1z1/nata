@@ -15,7 +15,13 @@ form.addEventListener('submit', async (e) => {
   out.innerHTML = '<p class="muted">Ищем…</p>';
   try {
     const res = await fetch('/api/shodan?q=' + encodeURIComponent(q));
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      throw new Error('API не отвечает (Vercel не задеплоил /api/shodan — проверь что файл api/shodan.js в репозитории и деплой прошёл)');
+    }
     if (!res.ok) throw new Error(data.error || ('HTTP ' + res.status));
     render(q, data);
   } catch (err) {
