@@ -11,8 +11,8 @@ body {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
@@ -39,8 +39,10 @@ body {
   right: 0;
   z-index: 10;
   height: 110px;
-  background: #0e0e10;
-  border-bottom: 1px solid #1e1e22;
+  background: rgba(14, 14, 16, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
 }
