@@ -72,6 +72,14 @@ body {
   display: none;
 }
 
+/* Правый блок шапки (TG + вход рядом) */
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
 .menu__item {
   position: relative;
   display: flex;
