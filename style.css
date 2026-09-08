@@ -631,42 +631,6 @@ body {
   color: #ff8080;
 }
 
-/* Галерея мемов */
-.memes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;
-  width: 100%;
-}
-
-.meme {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.03);
-  text-decoration: none;
-}
-
-.meme__media {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-  background: #000;
-}
-
-.meme__tags {
-  padding: 0 10px 10px;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.55);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .tool {
   width: 100%;
   display: flex;
